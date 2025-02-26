@@ -1,0 +1,68 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <h1>Edit the details</h1>
+        <form method="post" action="/listings/<%=listing._id%>?_method=put" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input value="<%=listing.title%>" type="text" name=listing[title] class="form-control" required/>
+            <div class="invalid-feedback">Please enter a title</div>
+        </div>
+         
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input class="form-control" value="<%=listing.description%>" type="text" name=listing[description] required/>
+            <div class="invalid-feedback">Please enter a Description</div>
+        </div>
+       
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input value="<%=listing.price%>" type="number" name=listing[price] class="form-control" required/>
+                <div class="invalid-feedback">Please enter a valid price</div>
+            </div>
+
+            <div class="mb-3 col-md-6">
+                <label class="form label">Select listing category</label>
+                <select class="form-select" name="listing[category]">
+                    <option selected> <%=listing.category%> </option>
+                    <option value="Trending">Trending</option>
+                    <option value="beach">beach</option>
+                    <option value="Camping">Camping</option>
+                    <option value="mountains">mountains</option>
+                    <option value="Iconic cities">Iconic cities</option>
+                    <option value="Farms">farms</option>
+                    <option value="Arctic">Arctic</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Amazing pool">Amazing pool</option>
+                  </select>
+             </div>
+        </div>
+      
+        <div class="mb-3">
+            Original image <br/>
+            <img src="<%=originalImageUrl%>" style="height: 150px; width: 180px;" />
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label"> Upload New Image</label>
+             <input class="form-control" type="file" name="listing[image]" />
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-8">
+                <label for="loc" class="form-label">Location</label>
+                <input value="<%=listing.location%>" type="text" name=listing[location] class="form-control" />
+            </div>
+            
+            <div class="mb-3 col-md-4">
+                <label for="country" class="form-label">Country</label>
+                <input value="<%=listing.country%>" type="text" name=listing[country] class="form-control" required/>
+                <div class="invalid-feedback">Please enter a country</div>
+            </div>
+        </div>
+        <button class="btn btn-dark mb-3 add-btn" style="width: 4rem;">Edit</button>
+        <br/><br/>
+    </form>
+</div>
+</div>
