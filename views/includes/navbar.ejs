@@ -1,4 +1,10 @@
 <style>
+   
+   .navbar{
+    display: flex;
+    justify-content: space-evenly;
+   }
+
 
   .search-btn{
     background-color: #fe424d;
@@ -17,6 +23,7 @@
     margin-right: 0.5rem;
   }
   .search-inp{
+    margin-left:10rem;
     border-radius:25px ;
     padding: 0.5rem 3rem 0.5rem 3rem;
     border: 0.5px solid black;
@@ -25,30 +32,99 @@
   .nav-link{
     margin-top: 0.5rem;
   }
+
+  /* Default Layout */
+.search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Navbar Toggler (Moves to the Right) */
+.navbar-toggler {
+   margin-left: auto;
+    margin-right: 10px;
+}
+
+/* Responsive: Adjust Layout on Small Screens */
+@media (max-width: 768px) {
+    .container-fluid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Ensure Navbar Toggle is Aligned Right */
+    .d-flex {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* Center Search Bar */
+    .search {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0px;
+        position: sticky;
+    }
+
+    .search-inp {
+      margin: 1rem 0 1rem 2rem !important;
+      width: 90%;
+    }
+    .search-btn{
+      height: 3rem;
+      margin: 1rem 0 1rem 1rem ;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .menu{
+    position: absolute;
+    top: 4rem; /* Adjust based on navbar height */
+    right: 25px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px;
+    
+    }
+    .menu.active {
+    display: block;
+  }
+}
+
+  
+    
 </style>
 
 
 
 <nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom">
     <div class="container-fluid">
-      <div class="title">
-        <a class="navbar-brand" href="/listings" style="font-size: 1.8rem; margin-left: 0.5rem;"><i class="fa-regular fa-compass"></i><b style="margin-left: 0.5rem; color:#fe424d;  font-family: Poppins, serif;">WanderLust</b></a>
+      <div class="title d-flex justify-content-evenly align-items-center">
+        <a class="navbar-brand" href="/listings" style="font-size: 1.8rem; margin-left: 0.5rem;"><i class="fa-regular fa-compass"></i><b class="logo" style="margin-left: 0.5rem; color:#fe424d;  font-family: Poppins, serif;">WanderLust</b></a>
+        <a class="nav-link" href="/listings" style="margin-left: 2rem;">Home</a>
       </div>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/listings" >Home</a>
-        </div>
+      
         <div class="search ms-auto">
           <form class="d-flex" role="search" method="get"  action="/listings/location">
             <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destination" >
             <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
           </form>
         </div>
-        <div class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav  menu ms-auto">
           <a class="nav-link" href="/listings/new">Add new Listing</a>
           <% if(!currUser) { %>
           <a class="nav-link"  href="/signup"><b>Signup</b></a>

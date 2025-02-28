@@ -33,12 +33,22 @@
         border: 1px solid black;
         border-radius: 1rem;
         height: 3rem;
-        padding: 1.5rem;
+        padding: 1rem;
         display: flex;
         align-items: center;
-        margin-left: 5rem;
+        margin-left: auto;
         margin-top: 1rem;
       }
+
+      @media (max-width:768px){
+         .tax-toggle{
+           padding: 0.5px;
+          }
+          .filters{
+            margin-top: 2rem;
+          }
+      }
+
     </style>
   
    
@@ -63,7 +73,7 @@
       <a href="/listings/category?category=Iconic cities"><div><i class="fa-solid fa-mountain-city"></i></div>
       <p>Iconic cities</p></a>
     </div>
-    <div class="filter">
+    <div class="filter ">
       <a href="/listings/category?category=Farms"><div><i class="fa-solid fa-cow"></i></div>
       <p>farms</p></a>
     </div>
@@ -71,7 +81,7 @@
       <a href="/listings/category?category=mountains" ><div><i class="fa-solid fa-mountain"></i></div>
       <p>mountains</p></a>
     </div>
-    <div class="filter">
+    <div class="filter ">
       <a href="/listings/category?category=Amazing pool"><div><i class="fa-solid fa-person-swimming"></i></div>
       <p>Amazing Pool</p></a>
     </div>
@@ -79,16 +89,16 @@
       <a href="/listings/category?category=Camping" ><div><i class="fa-solid fa-tents"></i></i></div>
       <p>Camping</p></a>
     </div>
-    <div class="filter">
+    <div class="filter ">
       <a href="/listings/category?category=Arctic" ><div><i class="fa-solid fa-snowflake"></i></div>
       <p>Arctic</p></a>
     </div>
-    <div class="filter">
+    <div class="filter ">
       <a href="/listings/category?category=beach"> <div><i class="fa-solid fa-umbrella-beach"></i></div>
       <p>beach</p></a>
     </div>
-    <div class="tax-toggle">
-      <div class="form-check-reverse form-switch">
+    <div class="tax-toggle ">
+      <div class="form-check-reverse form-switch tax-btn">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">display total after taxes</label>
       </div>
