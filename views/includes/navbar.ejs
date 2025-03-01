@@ -1,138 +1,234 @@
-<style>
+<!-- <style>
    
-   .navbar{
-    display: flex;
-    justify-content: space-evenly;
-   }
-
-
-  .search-btn{
-    background-color: #fe424d;
-    color: white;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+  .navbar{
+   display: flex;
+   justify-content: space-evenly;
   }
 
-  .search-btn:hover{
-    background-color: #fe424d;
-    color: white;
-  }
 
-  .search-btn i{
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-inp{
-    margin-left:10rem;
-    border-radius:25px ;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    border: 0.5px solid black;
-  }
+ .search-btn{
+   background-color: #fe424d;
+   color: white;
+   border-radius: 25px;
+   padding: 0 1rem 0 1rem;
+ }
 
-  .nav-link{
-    margin-top: 0.5rem;
-  }
+ .search-btn:hover{
+   background-color: #fe424d;
+   color: white;
+ }
 
-  /* Default Layout */
+ .search-btn i{
+   display: inline;
+   margin-right: 0.5rem;
+ }
+ .search-inp{
+   margin-left:10rem;
+   border-radius:25px ;
+   padding: 0.5rem 3rem 0.5rem 3rem;
+   border: 0.5px solid black;
+ }
+
+ .nav-link{
+   margin-top: 0.5rem;
+ }
+
+ /* Default Layout */
 .search {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
 }
 
 /* Navbar Toggler (Moves to the Right) */
 .navbar-toggler {
-   margin-left: auto;
-    margin-right: 10px;
+  margin-left: auto;
+   margin-right: 10px;
 }
+
+
+
+
 
 /* Responsive: Adjust Layout on Small Screens */
 @media (max-width: 768px) {
-    .container-fluid {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
+   .container-fluid {
+       display: flex !important;
+       flex-direction: column !important;
+       align-items: center !important;
+       text-align: center !important;
+   }
 
-    /* Ensure Navbar Toggle is Aligned Right */
-    .d-flex {
-        width: 100% !important;
-    }
+   /* Ensure Navbar Toggle is Aligned Right */
+   .d-flex {
+       width: 100% !important;
+   }
 
-    /* Center Search Bar */
-    .search {
-        width: 100% !important;
-        justify-content: center !important;
-        margin-top: 0px !important;
-        position: sticky  !important;
-    }
+   /* Center Search Bar */
+   .search {
+       width: 100% !important;
+       justify-content: center !important;
+       margin-top: 0px !important;
+       position: fixed  !important;
+   }
 
-    .search-inp {
-      margin: 1rem 0 1rem 2rem !important;
-      width: 90% !important;
-    }
-    .search-btn{
-      height: 3rem !important;
-      margin: 1rem 0 1rem 1rem !important;
-    }
+   .search-inp {
+     margin: 4rem 0 1rem 2rem !important;
+     width: 90% !important;
+   }
+   .search-btn{
+     height: 3rem !important;
+     margin: 4rem 0 1rem 1rem !important;
+   }
 
-    .navbar-toggler {
-        position: absolute !important;
-        right: 10px !important;
-        top: 10px !important;
-    }
+   .navbar-toggler {
+       position: absolute;
+       right: 10px !important;
+       top: 10px !important;
+   }
 
-    .menu{
-    position: absolute !important;
-    top: 4rem !important; /* Adjust based on navbar height */
-    right: 25px !important;
-    background: white !important;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important ;
-    border-radius: 5px !important;
-    z-index: 1000 !important;
-    padding: 10px !important;
-    
-    }
-    .menu.active {
-    display: block !important;
-  }
+   .menu{
+   position: absolute;
+   top: 4rem !important; /* Adjust based on navbar height */
+   right: 25px !important;
+   background: white !important;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important ;
+   border-radius: 5px !important;
+   z-index: 1000 !important;
+   padding: 10px !important;
+   
+   }
 }
 
-  
-    
+ 
+   
 </style>
 
 
 
 <nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom">
-    <div class="container-fluid">
-      <div class="title d-flex justify-content-evenly align-items-center">
-        <a class="navbar-brand" href="/listings" style="font-size: 1.8rem; margin-left: 0.5rem;"><i class="fa-regular fa-compass"></i><b class="logo" style="margin-left: 0.5rem; color:#fe424d;  font-family: Poppins, serif;">WanderLust</b></a>
-        <a class="nav-link" href="/listings" >Home</a>
+   <div class="container-fluid">
+     <div class="title d-flex justify-content-evenly align-items-center">
+       <a class="navbar-brand" href="/listings" style="font-size: 1.8rem; margin-left: 0.5rem;"><i class="fa-regular fa-compass"></i><b class="logo" style="margin-left: 0.5rem; color:#fe424d;  font-family: Poppins, serif;">WanderLust</b></a>
+       <a class="nav-link" href="/listings" >Home</a>
+     </div>
+     
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     
+       <div class="search ms-auto">
+         <form class="d-flex" role="search" method="get"  action="/listings/location">
+           <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destination" >
+           <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+         </form>
+       </div>
+       <div class="collapse navbar-collapse menu" id="navbarNavAltMarkup">
+       <div class="navbar-nav ms-auto">
+         <a class="nav-link" href="/listings/new">Add new Listing</a>
+         
+         <a class="nav-link"  href="/signup"><b>Signup</b></a>
+         <a class="nav-link" href="/login"><b>Login</b></a>
+        
+         <a class="nav-link" href="/logout"><b>Logout</b></a>
+        
+       </div>
+     </div>
+   </div>
+ </nav>
+
+
+ <script>
+ document.querySelector('.navbar-toggler').addEventListener('click', function() {
+    var nav = document.getElementById('navbarNavAltMarkup');
+    nav.classList.toggle('show');
+});
+
+</script> -->
+
+<style>
+
+.navbar{
+   display: flex;
+   justify-content: space-evenly;
+  }
+
+
+ .search-btn{
+   background-color: #fe424d;
+   color: white;
+   border-radius: 25px;
+   padding: 0 1rem 0 1rem;
+ }
+
+ .search-btn:hover{
+   background-color: #fe424d;
+   color: white;
+ }
+
+ .search-btn i{
+   display: inline;
+   margin-right: 0.5rem;
+ }
+ .search-inp{
+   margin-left:10rem;
+   border-radius:25px ;
+   padding: 0.5rem 3rem 0.5rem 3rem;
+   border: 0.5px solid black;
+ }
+
+ @media (max-width: 768px){
+    .d-flex{
+      position: relative;
+      right: 10rem;
+      top:1.5rem;
+    }
+    
+    .navbar-collapse{
+      flex-basis: 0;
+      flex-grow: 0;
+      display: flex;
+      position: absolute;
+      top:3.5rem;
+      right: 1rem;
+      padding: 0.5rem;
+      background-color: white;
+      box-shadow: 0 0 8px grey;
+    }
+ }
+
+
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/lisintgs"><i class="fa-regular fa-compass"></i>
+      <b class="logo" style="margin-left: 0.5rem; color:#fe424d;  font-family: Poppins, serif;">WanderLust</b>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav ms-auto search">
+      <form class="d-flex" role="search" method="get"  action="/listings/location">
+        <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destination" >
+        <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        
       </div>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-        <div class="search ms-auto">
-          <form class="d-flex" role="search" method="get"  action="/listings/location">
-            <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destination" >
-            <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-          </form>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav  menu ms-auto">
-          <a class="nav-link" href="/listings/new">Add new Listing</a>
-          <% if(!currUser) { %>
-          <a class="nav-link"  href="/signup"><b>Signup</b></a>
-          <a class="nav-link" href="/login"><b>Login</b></a>
-          <%}%>
-          <% if(currUser) { %>
-          <a class="nav-link" href="/logout"><b>Logout</b></a>
-          <%}%>
-        </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings">Home</a>
+        <a class="nav-link" href="/listings/new">Add new Listing</a>
+        <% if (!currUser) { %> 
+        <a class="nav-link" href="/signup"><b>Signup</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
+        <% if (currUser) { %> 
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
