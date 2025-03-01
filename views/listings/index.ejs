@@ -39,19 +39,38 @@
         margin-left: auto;
         margin-top: 1rem;
       }
+       
+      .d-flex{
+        width:50%;
+        margin: 1rem 0 0.5rem 8rem;
+      }
 
       @media (max-width:768px){
          .tax-toggle{
            padding: 0.5px !important;
           }
           .filters{
-            margin-top: 2rem !important;
+            margin-top: 2.5rem !important;
+          }
+          .search{
+            display: flex;
+            position: fixed;
+            right: 6rem;
+          }
+          .d-flex{
+            width:100%;
+            margin: 1rem 0 0.5rem 0;
           }
       }
 
     </style>
   
-   
+  <div class="navbar-nav ms-auto search">
+    <form class="d-flex" role="search" method="get"  action="/listings/location">
+      <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destination" >
+      <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+    </form>
+  </div>
   <div class="filters">
     <div class="filter">
       <a href="/listings" >
