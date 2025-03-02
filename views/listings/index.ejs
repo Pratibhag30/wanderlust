@@ -41,8 +41,16 @@
       }
        
       .d-flex{
-        width:50%;
+        width:80%;
         margin: 1rem 0 0.5rem 8rem;
+        position: relative;
+      }
+
+      .search{
+        background-color: white;
+        z-index: 1000;
+        right: 2rem;
+        width:100% !important;
       }
 
       @media (max-width:768px){
@@ -54,7 +62,7 @@
           }
           .search{
             display: flex;
-            position: fixed;
+            position: sticky;
             right: 6rem;
           }
           .d-flex{
@@ -63,9 +71,29 @@
           }
       }
 
+      @media (max-width:638px) {
+        .search-inp {
+          margin-left: 0;
+          padding: 0.5rem 0.3rem 0.5rem 0.5rem;
+        }
+      }
+
+      @media (min-width:768px) {
+        .d-flex{
+          width: 80%;
+          right:4rem;
+        }
+      }
+
+      @media(min-width:991px){
+        .d-flex{
+          width:60%;
+        }
+      }
+
     </style>
   
-  <div class="navbar-nav ms-auto search">
+  <div class="navbar-nav search">
     <form class="d-flex" role="search" method="get"  action="/listings/location">
       <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destination" >
       <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
