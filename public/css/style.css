@@ -69,6 +69,9 @@ body{
 }
 
 
+
+
+
 /* card styling */
 
 .listing-card{
@@ -123,5 +126,5 @@ body{
  /* MAP */
  #map{
     height: 400px;
-    width: 100vh;
+    width: 80vh;
  }
